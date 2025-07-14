@@ -52,8 +52,8 @@ services:
       service: microservice-config-import-config
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/enquiries
-      SPRING_DATASOURCE_USERNAME: YOUR_POSTGRES_USERNAME
-      SPRING_DATASOURCE_PASSWORD: YOUR_POSTGRES_PASSWORD
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: password
       SPRING_DATASOURCE_DRIVER-CLASS-NAME: org.postgresql.Driver
 
   microservice-notification-service-config:
