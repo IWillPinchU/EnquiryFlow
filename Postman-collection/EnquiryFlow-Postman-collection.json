@@ -1,0 +1,391 @@
+{
+  collection: {
+    info: {
+      _postman_id: "991cd64f-c729-4add-8514-bcc16595744d",
+      name: "AdminController via Gateway",
+      description: "Postman collection for AdminController routed through API Gateway",
+      schema: "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+      updatedAt: "2025-07-14T19:31:45.000Z",
+      createdAt: "2025-07-13T16:10:23.000Z",
+      lastUpdatedBy: "45705530",
+      uid: "45705530-991cd64f-c729-4add-8514-bcc16595744d"
+    },
+    item: [
+      {
+        name: "Fetch All Enquiries",
+        id: "1a4622d6-c43b-4358-9b16-0f6a94e092ed",
+        protocolProfileBehavior: {
+          disableBodyPruning: true
+        },
+        request: {
+          method: "GET",
+          header: [ ],
+          url: {
+            raw: "http://localhost:8080/dbe/admin/api/fetch/enquiries",
+            protocol: "http",
+            host: [
+              "localhost"
+            ],
+            port: "8080",
+            path: [
+              "dbe",
+              "admin",
+              "api",
+              "fetch",
+              "enquiries"
+            ]
+          }
+        },
+        response: [ ],
+        uid: "45705530-1a4622d6-c43b-4358-9b16-0f6a94e092ed"
+      },
+      {
+        name: "Fetch Enquiries by Status",
+        id: "b622c905-2c47-461b-a3e8-f666bc402e30",
+        protocolProfileBehavior: {
+          disableBodyPruning: true
+        },
+        request: {
+          method: "GET",
+          header: [ ],
+          url: {
+            raw: "http://localhost:8080/dbe/admin/api/fetch/enquiries?enquiryStatus=OPEN",
+            protocol: "http",
+            host: [
+              "localhost"
+            ],
+            port: "8080",
+            path: [
+              "dbe",
+              "admin",
+              "api",
+              "fetch",
+              "enquiries"
+            ],
+            query: [
+              {
+                key: "enquiryStatus",
+                value: "OPEN"
+              }
+            ]
+          }
+        },
+        response: [ ],
+        uid: "45705530-b622c905-2c47-461b-a3e8-f666bc402e30"
+      },
+      {
+        name: "Fetch Enquiry by ID",
+        id: "466e5c73-ba47-49d0-b76f-75335e0964e2",
+        protocolProfileBehavior: {
+          disableBodyPruning: true
+        },
+        request: {
+          method: "GET",
+          header: [ ],
+          url: {
+            raw: "http://localhost:8080/dbe/admin/api/fetch/enquiries/1",
+            protocol: "http",
+            host: [
+              "localhost"
+            ],
+            port: "8080",
+            path: [
+              "dbe",
+              "admin",
+              "api",
+              "fetch",
+              "enquiries",
+              "1"
+            ]
+          }
+        },
+        response: [ ],
+        uid: "45705530-466e5c73-ba47-49d0-b76f-75335e0964e2"
+      },
+      {
+        name: "Update Enquiry Status",
+        id: "506ba0d4-80f9-484a-9bca-1745fa6a977f",
+        protocolProfileBehavior: {
+          disableBodyPruning: true
+        },
+        request: {
+          method: "PUT",
+          header: [ ],
+          url: {
+            raw: "http://localhost:8080/dbe/admin/api/update/enquiry/2?status=CLOSED",
+            protocol: "http",
+            host: [
+              "localhost"
+            ],
+            port: "8080",
+            path: [
+              "dbe",
+              "admin",
+              "api",
+              "update",
+              "enquiry",
+              "2"
+            ],
+            query: [
+              {
+                key: "status",
+                value: "CLOSED"
+              }
+            ]
+          }
+        },
+        response: [ ],
+        uid: "45705530-506ba0d4-80f9-484a-9bca-1745fa6a977f"
+      },
+      {
+        name: "Delete Enquiry",
+        id: "8d954ef7-b095-4bc3-9712-bbf8cace4a30",
+        protocolProfileBehavior: {
+          disableBodyPruning: true
+        },
+        request: {
+          method: "DELETE",
+          header: [ ],
+          url: {
+            raw: "http://localhost:8080/dbe/admin/api/delete/enquiry/2",
+            protocol: "http",
+            host: [
+              "localhost"
+            ],
+            port: "8080",
+            path: [
+              "dbe",
+              "admin",
+              "api",
+              "delete",
+              "enquiry",
+              "2"
+            ]
+          }
+        },
+        response: [ ],
+        uid: "45705530-8d954ef7-b095-4bc3-9712-bbf8cace4a30"
+      },
+      {
+        name: "Fetch All Audit Logs",
+        id: "06176bbc-6653-42c4-b3b4-35fd1849a4a5",
+        protocolProfileBehavior: {
+          disableBodyPruning: true
+        },
+        request: {
+          method: "GET",
+          header: [ ],
+          url: {
+            raw: "http://localhost:8080/dbe/admin/api/fetch/auditLogs",
+            protocol: "http",
+            host: [
+              "localhost"
+            ],
+            port: "8080",
+            path: [
+              "dbe",
+              "admin",
+              "api",
+              "fetch",
+              "auditLogs"
+            ]
+          }
+        },
+        response: [ ],
+        uid: "45705530-06176bbc-6653-42c4-b3b4-35fd1849a4a5"
+      },
+      {
+        name: "Fetch Audit Logs by Action",
+        id: "f1bb27ae-27c9-4529-917e-df2ffce10817",
+        protocolProfileBehavior: {
+          disableBodyPruning: true
+        },
+        request: {
+          method: "GET",
+          header: [ ],
+          url: {
+            raw: "http://localhost:8080/dbe/admin/api/fetch/auditLogs?auditAction=CREATE",
+            protocol: "http",
+            host: [
+              "localhost"
+            ],
+            port: "8080",
+            path: [
+              "dbe",
+              "admin",
+              "api",
+              "fetch",
+              "auditLogs"
+            ],
+            query: [
+              {
+                key: "auditAction",
+                value: "CREATE"
+              }
+            ]
+          }
+        },
+        response: [ ],
+        uid: "45705530-f1bb27ae-27c9-4529-917e-df2ffce10817"
+      },
+      {
+        name: "Fetch Audit Logs by Entity ID",
+        id: "78322946-a15d-4000-9afa-57eafcaf3453",
+        protocolProfileBehavior: {
+          disableBodyPruning: true
+        },
+        request: {
+          method: "GET",
+          header: [ ],
+          url: {
+            raw: "http://localhost:8080/dbe/admin/api/fetch/auditLogs/entity/1",
+            protocol: "http",
+            host: [
+              "localhost"
+            ],
+            port: "8080",
+            path: [
+              "dbe",
+              "admin",
+              "api",
+              "fetch",
+              "auditLogs",
+              "entity",
+              "1"
+            ]
+          }
+        },
+        response: [ ],
+        uid: "45705530-78322946-a15d-4000-9afa-57eafcaf3453"
+      },
+      {
+        name: "Fetch Audit Log by ID",
+        id: "84592121-e9bf-4d15-8032-294081a062e3",
+        protocolProfileBehavior: {
+          disableBodyPruning: true
+        },
+        request: {
+          method: "GET",
+          header: [ ],
+          url: {
+            raw: "http://localhost:8080/dbe/admin/api/fetch/auditLogs/3",
+            protocol: "http",
+            host: [
+              "localhost"
+            ],
+            port: "8080",
+            path: [
+              "dbe",
+              "admin",
+              "api",
+              "fetch",
+              "auditLogs",
+              "3"
+            ]
+          }
+        },
+        response: [ ],
+        uid: "45705530-84592121-e9bf-4d15-8032-294081a062e3"
+      }
+    ],
+    auth: {
+      type: "oauth2",
+      oauth2: [
+        {
+          key: "refreshRequestParams",
+          value: [ ],
+          type: "any"
+        },
+        {
+          key: "tokenRequestParams",
+          value: [ ],
+          type: "any"
+        },
+        {
+          key: "authRequestParams",
+          value: [ ],
+          type: "any"
+        },
+        {
+          key: "tokenName",
+          value: "clientcredentails_accesstoken",
+          type: "string"
+        },
+        {
+          key: "challengeAlgorithm",
+          value: "S256",
+          type: "string"
+        },
+        {
+          key: "useBrowser",
+          value: true,
+          type: "boolean"
+        },
+        {
+          key: "scope",
+          value: "openid email profile",
+          type: "string"
+        },
+        {
+          key: "grant_type",
+          value: "authorization_code",
+          type: "string"
+        },
+        {
+          key: "clientSecret",
+          value: "23sixpnJ5PGS5FbASOiYIhRHkpDZRDlE",
+          type: "string"
+        },
+        {
+          key: "clientId",
+          value: "dbe-admin-ac",
+          type: "string"
+        },
+        {
+          key: "authUrl",
+          value: "http://localhost:7080/realms/master/protocol/openid-connect/auth",
+          type: "string"
+        },
+        {
+          key: "addTokenTo",
+          value: "header",
+          type: "string"
+        },
+        {
+          key: "client_authentication",
+          value: "body",
+          type: "string"
+        },
+        {
+          key: "accessTokenUrl",
+          value: "http://localhost:7080/realms/master/protocol/openid-connect/token",
+          type: "string"
+        }
+      ]
+    },
+    event: [
+      {
+        listen: "prerequest",
+        script: {
+          id: "5869f8e0-b42c-445d-8c7f-fe19ad8a5db3",
+          type: "text/javascript",
+          packages: { },
+          exec: [
+            ""
+          ]
+        }
+      },
+      {
+        listen: "test",
+        script: {
+          id: "17900ca1-acb8-4ee7-acce-98995b4ef74c",
+          type: "text/javascript",
+          packages: { },
+          exec: [
+            ""
+          ]
+        }
+      }
+    ]
+  }
+}
