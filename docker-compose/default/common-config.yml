@@ -1,0 +1,73 @@
+services:
+  network-deploy-service:
+    networks:
+      - iwillpinchu
+
+  microservice-base-config:
+    volumes:
+      - ../observability/opentelemetry/opentelemetry-javaagent.jar:/app/libs/opentelemetry-javaagent.jar
+    extends:
+      service: network-deploy-service
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    environment:
+      JAVA_TOOL_OPTIONS: "-javaagent:/app/libs/opentelemetry-javaagent.jar"
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://tempo:4318
+      OTEL_METRICS_EXPORTER: none
+      OTEL_LOGS_EXPORTER: none
+
+  microservice-config-server-config:
+    extends:
+      service: microservice-base-config
+    environment:
+      SERVER_PORT: 8071
+      SPRING_APPLICATION_NAME: config-server
+      SPRING_PROFILES_ACTIVE: git
+      SPRING_CLOUD_CONFIG_SERVER_GIT_URI: https://github.com/IWillPinchU/ConstructionEnquiryConfiguration.git
+      SPRING_CLOUD_CONFIG_SERVER_GIT_DEFAULT_LABEL: main
+      SPRING_CLOUD_CONFIG_SERVER_GIT_FORCE-PULL: "true"
+      SPRING_CLOUD_CONFIG_SERVER_GIT_CLONE-ON-START: "true"
+      SPRING_CLOUD_CONFIG_SERVER_GIT_TIMEOUT: "5"
+
+  microservice-config-import-config:
+    extends:
+      service: microservice-base-config
+    environment:
+      SPRING_CONFIG_IMPORT: "configserver:http://config-server:8071/"
+
+  microservice-gateway-server-config:
+    extends:
+      service: microservice-config-import-config
+    environment:
+      SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK-SET-URI: http://keycloak:8080/realms/master/protocol/openid-connect/certs
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: 6379
+      SPRING_DATA_REDIS_CONNECT-TIMEOUT: 2s
+      SPRING_DATA_REDIS_TIMEOUT: 1s
+
+  microservice-service-config:
+    extends:
+      service: microservice-config-import-config
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/enquiries
+      SPRING_DATASOURCE_USERNAME: YOUR_POSTGRES_USERNAME
+      SPRING_DATASOURCE_PASSWORD: YOUR_POSTGRES_PASSWORD
+      SPRING_DATASOURCE_DRIVER-CLASS-NAME: org.postgresql.Driver
+
+  microservice-notification-service-config:
+    extends:
+      service: microservice-config-import-config
+    environment:
+      SPRING_MAIL_HOST: smtp.gmail.com
+      SPRING_MAIL_PORT: 587
+      SPRING_MAIL_USERNAME: YOUR_EMAIL
+      SPRING_MAIL_PASSWORD: YOUR_EMAIL_PASSWORD
+      SPRING_MAIL_PROPERTIES_MAIL_SMTP_AUTH: true
+      SPRING_MAIL_PROPERTIES_MAIL_SMTP_STARTTLS_ENABLE: true
+      NOTIFICATION_ADMIN_EMAIL: YOUR_EMAIL
+
+
+
+
